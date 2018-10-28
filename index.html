@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>The Planets</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=El+Messiri:400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet"> 	
+<style>
+
+	@-webkit-keyframes rotateorbit {
+		0% {
+			transform:  rotate(360deg);
+		}	
+	}
+	@-webkit-keyframes sunglow {
+		25% {
+			box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .5) inset;
+		}
+		50% {
+			box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, .5) inset;
+		}
+		75% {
+			box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .5) inset;	}			
+	}
+		
+	html {
+		box-sizing: border-box;
+	}
+	body {
+		margin: 0;
+		background-image: url("images/darkness.png");
+	}
+	
+	#container {
+		width: 600px;
+		height: 600px;
+		margin: 75px auto 0;
+		position: relative;
+	}
+	#sun {
+		width: 90px;
+		height: 90px;
+		border-radius: 50%;
+		background: #ff0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		animation-name: sunglow;
+		animation-duration: 5s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	
+	/*  The ORBITS */
+	
+	#container>div:nth-child(n+2) {
+		position: absolute;	
+		border: 1px solid transparent;
+		border-radius: 50%;
+		animation-name: rotateorbit;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+	} 
+	
+	#container>div:nth-child(2) {
+		width: 150px;
+		height: 150px;
+		top: 224px;
+		left: 224px;
+		animation-duration: 2s;
+	}
+	#container>div:nth-child(3) {
+		width: 200px;
+		height: 200px;
+		top: 199px;
+		left: 199px;
+		animation-duration: 3s;
+	}
+	#container>div:nth-child(4) {
+		width: 250px;
+		height: 250px;
+		top: 174px;
+		left: 174px;
+		animation-duration: 4s;
+	}
+	#container>div:nth-child(5) {
+		width: 300px;
+		height: 300px;
+		top: 149px;
+		left: 149px;
+		animation-duration: 5s;
+	}
+	#container>div:nth-child(6) {
+		width: 350px;
+		height: 350px;
+		top: 124px;
+		left: 124px;
+		animation-duration: 10s;
+	}
+	#container>div:nth-child(7) {
+		width: 400px;
+		height: 400px;
+		top: 99px;
+		left: 99px;
+		animation-duration: 20s;
+	}
+	#container>div:nth-child(8) {
+		width: 450px;
+		height: 450px;
+		top: 74px;
+		left: 74px;
+		animation-duration: 30s; 
+	}
+	#container>div:nth-child(9) {
+		width: 500px;
+		height: 500px;
+		top: 49px;
+		left: 49px;
+		animation-duration: 40s; 
+	}
+	
+	/*  Testing Tool for placement of each planet - modify width and height when determining where to place a planet on its orbit. Substitute temporarily for planet class name in the html. Remember to change back to planet name. What this does is show me the div "before" being given a border radius - I get a round div and a square one. This is how I can decide what "coordinates" to give my planets in relation to their orbital rings. 
+	
+	.temp { 
+		width: 500px;
+		height: 500px;
+		position: absolute;
+		border: 1px solid red;
+	} */
+	
+	/* Details for each planet: */
+	
+	.mercury {
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		position: absolute;
+		top: 30px;
+		left: 4px;
+		background: coral;
+	}
+	.venus {
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		position: absolute;
+		top: 0px;
+		right: 50px;
+		background: #f2e831;
+	}
+	.earth {
+		width: 23px;
+		height: 23px;
+		position: absolute;
+		bottom: 30px;
+		right: 21px;
+		background: url(images/world-3d.png) no-repeat; 
+		background-size: contain;
+	}
+	.mars {
+		width: 18px;
+		height: 18px;
+		border-radius: 50%; 
+		position: absolute;
+		bottom: -5px;
+		left: 110px;
+		background: #e23f36; 
+	}
+	.jupiter {
+		width: 33px;
+		height: 33px;
+		position: absolute;
+		bottom: 100px;
+		left: -7px;
+		background: url(images/jupiter.png) no-repeat;
+		background-size: contain;
+	}
+	.saturn {
+		width: 35px;
+		height: 35px;
+		position: absolute;
+		top: -12px;
+		left: 170px; 
+		background: url(images/rainbow-saturn.png) no-repeat;
+		background-size: contain; 
+	}
+	.uranus {
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		position: absolute;
+		top: 0;
+		right: 150px;
+		background: royalblue;
+	}
+	.neptune {
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		position: absolute;
+		top: 25px;
+		right: 105px;
+		background: turquoise;
+	}
+	
+	#showOrbits {
+		display: block;
+		width: 280px;
+		height: 50px;
+		margin: 0 auto;
+		font-family: 'El Messiri', sans-serif;
+		font-weight: 600; 
+		background: transparent; 
+		outline: none;
+		border: none;
+		color: #fff;
+		font-size: 1.75rem;
+		letter-spacing: 2px;
+		cursor: pointer;
+		text-shadow: -2px -2px 2px #fff; 
+	}
+	
+	/* Javascript needs this - the class gets toggled when you click the "showOrbits" button */
+	
+	#container>div:nth-child(n+2).change {
+		border: 1px solid #fff;
+	}	
+</style>
+<body>
+	
+	<div id="container">
+		<div id="sun"></div>
+		<div>
+			<div class="mercury"></div>
+		</div>
+		<div>
+			<div class="venus"></div>
+		</div>
+		<div>
+			<div class="earth"></div>
+		</div>
+		<div>
+			<div class="mars"></div>
+		</div>
+		<div>
+			<div class="jupiter"></div>
+		</div>
+		<div>
+			<div class="saturn"></div>
+		</div>
+		<div>
+			<div class="uranus"></div>
+		</div>
+		<div>
+			<div class="neptune"></div>
+		</div>
+	</div> <!-- End of container div -->
+
+	<button id="showOrbits" type="button">View Orbital Rings</button>
+		
+	<script>
+	
+	// Display the orbital rings when user clicks the button, although it doesn't look like a button - its just words; Click again to "hide" the rings
+	
+		var orbits = document.querySelectorAll('#container>div');
+		var orbitButton = document.getElementById('showOrbits');
+		
+		orbitButton.addEventListener('click', function() {
+		
+			for ( var i=1;  i < orbits.length; i++) { // Skip the Sun, start at 1
+				orbits[i].classList.toggle("change");
+			}
+		});
+			
+	</script>
+</body>
+</html>
+	
